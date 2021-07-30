@@ -25,6 +25,7 @@ class CreatePropertiesTable extends Migration
             $table->string('condition')->nullable();
             $table->integer('price')->nullable();
             $table->string('image')->nullable();
+            $table->string('featureImg')->nullable();
             $table->string('lga')->nullable();
             $table->string('state')->nullable();
             $table->string('address');

@@ -47,9 +47,9 @@
             </div>
 
             <div class="col-md-8">
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#category">
-                Create Category
-              </button>
+              <a class="btn btn-success" href="{{route('property.create')}}">
+                Create Property
+              </a>
               <hr>
                 @if (!empty($properties))
                 

@@ -12,6 +12,10 @@ class PagesController extends Controller
         return view('pages.index', compact('props'));
     }
 
+    public function show($id){
+        $res = Property::findOrFail($id);
+        return view('pages.property-details', compact('res'));
+    }
     public function about(){
         return view('pages.about');
     }

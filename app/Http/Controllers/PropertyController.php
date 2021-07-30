@@ -55,7 +55,7 @@ class PropertyController extends Controller
         $prop->lga = $req->lga;
         $prop->state = $req->state;
         $prop->address = $req->address;
-        $prop->published = 0;
+        $prop->published = 1;
 
         $prop->save();
         return redirect(route('property.index'))->with('success', 'You posted successfully');   

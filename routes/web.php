@@ -7,6 +7,7 @@ use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PagesController::class, 'index']);
+Route::get('/product-details/{id}',[PagesController::class, 'show'])->name('property.show');
 Route::get('/about',[PagesController::class, 'about'])->name('about');
 Route::get('/contact-us',[PagesController::class, 'contact'])->name('contact');
 
