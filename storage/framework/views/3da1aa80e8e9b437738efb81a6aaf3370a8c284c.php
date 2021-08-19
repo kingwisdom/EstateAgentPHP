@@ -1,1 +1,0 @@
-<h1><?php echo e($res->title); ?></h1><?php /**PATH C:\xampp\htdocs\EstateAgentPHP\resources\views/pages/property-details.blade.php ENDPATH**/ ?>

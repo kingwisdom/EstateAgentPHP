@@ -8,13 +8,13 @@
 
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
+               <p class="text-danger"> {{ session('status') }} </p>
             </div>
         @endif
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('password.email') }}">
+        <form method="POST" action="{{ route('requestemail') }}">
             @csrf
             <span class="login100-form-title p-b-32">
                 Forgot Password

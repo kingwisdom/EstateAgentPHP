@@ -44,7 +44,7 @@
 
 						<div>
                             @if (Route::has('password.request'))
-                                <a class="txt3" href="{{ route('password.request') }}">
+                                <a class="txt3" href="{{ route('resetpassword') }}">
                                     {{ __('Forgot your password?') }}
                                 </a>
                              @endif
@@ -58,7 +58,7 @@
 						</button>
                         
 					</div>
-                    <div style="margin-top: 20px;"></div>
+                    <div style="margin-top: 40px;"></div>
                     <div class="form-horizontal mx-auto">
                         <a href="/">Goto Home</a>
                         <a class="ml-3 mr-3">|</a>

@@ -152,6 +152,20 @@
   <section class="property-grid grid mt-5">
     <div class="container">
       <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">Latest Properties</h2>
+            </div>
+            <div class="title-link">
+              <a href="{{route('all_property')}}">All Property
+                <span class="ion-ios-arrow-forward"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
        @if (!@empty($props))
           @foreach($props as $prop)
             <div class="col-md-4">
@@ -163,14 +177,14 @@
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="#">{{$prop->title}}</a>
+                        <a href="{{route('property.show',$prop->slug)}}">{{$prop->title}}</a>
                       </h2>
                     </div>
                     <div class="card-body-a">
                       <div class="price-box d-flex">
-                        <span class="price-a">{{$prop->type}} | {{$prop->price}}</span>
+                        <span class="price-a">{{$prop->type}} | @convert($prop->price)</span>
                       </div>
-                      <a href="{{route('property.show',$prop->id)}}" class="link-a">Click here to view
+                      <a href="{{route('property.show',$prop->slug)}}" class="link-a">Click here to view
                         <span class="ion-ios-arrow-forward"></span>
                       </a>
                     </div>
@@ -182,17 +196,17 @@
           @endforeach
         @endif
       </div>
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-sm-12">
           <a class="btn btn-success" href="#">More</a>
         </div>
-      </div>
+      </div> --}}
     </div>
   </section>
   <!--/ Property Grid End /-->
 
   <!--/ News Star /-->
-  <section class="section-news section-t8">
+  <section class="property-grid grid mt-5">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -201,107 +215,46 @@
               <h2 class="title-a">Latest News</h2>
             </div>
             <div class="title-link">
-              <a href="blog-grid.html">All News
+              <a href="{{route('blog.all_post')}}">All News
                 <span class="ion-ios-arrow-forward"></span>
               </a>
             </div>
           </div>
         </div>
       </div>
-      <div id="new-carousel" class="owl-carousel owl-theme">
-        <div class="carousel-item-c">
-          <div class="card-box-b card-shadow news-box">
-            <div class="img-box-b">
-              <img src="{{ asset('assets/img/post-2.jpg')}}" alt="" class="img-b img-fluid">
-            </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
-                <div class="card-category-b">
-                  <a href="#" class="category-b">House</a>
+      <div class="row">
+       @if (!@empty($posts))
+          @foreach($posts as $p)
+            <div class="col-md-4">
+              <div class="card-box-a card-shadow">
+                <div class="img-box-a">
+                  @if($p->image)
+                  <img src="{{asset('images/blog-'.$p->image)}}" alt="" class="img-a img-fluid" style="height: 250px;">
+                  @else
+                  <img src="{{asset('images/logo.png')}}" alt="" class="img-a img-fluid" style="height: 250px;">         
+                  @endif
                 </div>
-                <div class="card-title-b">
-                  <h2 class="title-2">
-                    <a href="blog-single.html">House is comming
-                      <br> new</a>
-                  </h2>
-                </div>
-                <div class="card-date">
-                  <span class="date-b">18 Sep. 2017</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item-c">
-          <div class="card-box-b card-shadow news-box">
-            <div class="img-box-b">
-              <img src="{{ asset('assets/img/post-5.jpg')}}" alt="" class="img-b img-fluid">
-            </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
-                <div class="card-category-b">
-                  <a href="#" class="category-b">Travel</a>
-                </div>
-                <div class="card-title-b">
-                  <h2 class="title-2">
-                    <a href="blog-single.html">Travel is comming
-                      <br> new</a>
-                  </h2>
-                </div>
-                <div class="card-date">
-                  <span class="date-b">18 Sep. 2017</span>
+                <div class="card-overlay">
+                  <div class="card-overlay-a-content">
+                    <div class="card-header-a">
+                      <h2 class="card-title-a">
+                        <a href="{{route('blog.show',$p->slug)}}">{{Str::limit($p->title, 20, $end='....')}}</a>
+                       
+                      </h2>
+                    </div>
+                    <div class="card-body-a">
+                      <a href="{{route('blog.show',$p->slug)}}" class="link-a">Read News
+                        <span class="ion-ios-arrow-forward"></span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="carousel-item-c">
-          <div class="card-box-b card-shadow news-box">
-            <div class="img-box-b">
-              <img src="{{ asset('assets/img/post-7.jpg')}}" alt="" class="img-b img-fluid">
-            </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
-                <div class="card-category-b">
-                  <a href="#" class="category-b">Park</a>
-                </div>
-                <div class="card-title-b">
-                  <h2 class="title-2">
-                    <a href="blog-single.html">Park is comming
-                      <br> new</a>
-                  </h2>
-                </div>
-                <div class="card-date">
-                  <span class="date-b">18 Sep. 2017</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item-c">
-          <div class="card-box-b card-shadow news-box">
-            <div class="img-box-b">
-              <img src="{{ asset('assets/img/post-3.jpg')}}" alt="" class="img-b img-fluid">
-            </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
-                <div class="card-category-b">
-                  <a href="#" class="category-b">Travel</a>
-                </div>
-                <div class="card-title-b">
-                  <h2 class="title-2">
-                    <a href="#">Travel is comming
-                      <br> new</a>
-                  </h2>
-                </div>
-                <div class="card-date">
-                  <span class="date-b">18 Sep. 2017</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          @endforeach
+        @endif
       </div>
+      
     </div>
   </section>
   <!--/ News End /-->
@@ -346,33 +299,7 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item-a">
-          <div class="testimonials-box">
-            <div class="row">
-              <div class="col-sm-12 col-md-6">
-                <div class="testimonial-img">
-                  <img src="{{ asset('assets/img/testimonial-2.jpg')}}" alt="" class="img-fluid">
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-6">
-                <div class="testimonial-ico">
-                  <span class="ion-ios-quote"></span>
-                </div>
-                <div class="testimonials-content">
-                  <p class="testimonial-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cupiditate ea nam praesentium
-                    debitis hic ber quibusdam
-                    voluptatibus officia expedita corpori.
-                  </p>
-                </div>
-                <div class="testimonial-author-box">
-                  <img src="{{ asset('assets/img/mini-testimonial-2.jpg')}}" alt="" class="testimonial-avatar">
-                  <h5 class="testimonial-author">Pablo & Emma</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>

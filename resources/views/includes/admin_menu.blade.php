@@ -8,6 +8,10 @@
         <hr>
       </p>
       <p>
+        <a href="{{route('blog.index')}}"> <strong>All Blog Posts </strong></a>
+        <hr>
+      </p>
+      <p>
         <a href="{{route('admin.property')}}"> <strong>All Properties</strong></a>
         <hr>
       </p>

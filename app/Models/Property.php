@@ -25,4 +25,13 @@ class Property extends Model
             'address',
             'published'
     ];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }

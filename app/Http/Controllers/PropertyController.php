@@ -42,6 +42,7 @@ class PropertyController extends Controller
 
         $prop = new Property();
         $prop->title = $req->title;
+        $prop->slug = SlugService::createSlug(Property::class, 'slug', $request->title);
         $prop-> description = $req->description;
         $prop->type = $req->type;
         $prop->category_id = $req->category_id;
@@ -68,7 +69,6 @@ class PropertyController extends Controller
 
     public function update(Request $req, $id){
 
-       // $prop = Property::whereId($id)->update();
        $images ="";
        $prop = Property::findOrFail($id);
         if($req->file('file') != null){
